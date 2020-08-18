@@ -7,7 +7,7 @@ $db= new DbHandler();
 session_start();
 
 $user= new stdClass();
-$sql =" SELECT * FROM users WHERE korisnickoime='".$_SESSION['korisnickoime']."'";
+$sql =" SELECT * FROM users WHERE id='".$_SESSION['id']."'";
 
 $db->select($sql);
 

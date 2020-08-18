@@ -34,7 +34,7 @@ function azurirajpodatke(){
                 contentType: false,
                 success:function(response){
                     if(response == "sucesfully"){
-                        window.location="./pocetna.php"
+                        window.location="./profil.php"
                     }
                 }
             });
