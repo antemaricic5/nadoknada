@@ -11,3 +11,31 @@ a{
 a:hover{
     color: black;
 }
+#img-wrapper {
+    display: flow-root
+}
+
+#img-wrapper > img {
+    float: right;
+    cursor: pointer;
+}
+.col-md-4{
+    border-radius: 20px;
+    background-color: lightgrey;  
+    padding-top: 15px;
+    margin: 5px;
+    max-width: 30.333333%;
+}
+.photo-box > p {
+    overflow: hidden;
+    padding:10px 0;
+    max-height: 150px ;
+}
+.col-md-12{
+    padding: 10px;
+    background-color: lightgrey;
+    margin-bottom: 15px!important;
+}
+.photo-box > img {
+    object-fit: cover;
+}

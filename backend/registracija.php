@@ -8,7 +8,7 @@
     if(isset($_POST['korisnickoime']) || isset($_POST['zaporka']) || isset($_POST['opis'])){ 
         // Get the submitted form data 
         $korisnickoime = $_POST['korisnickoime']; 
-        $zaporka =  hash('sha512',$_POST['zaporka']);; 
+        $zaporka =  hash('sha512',$_POST['zaporka']); 
         $opis = $_POST['opis']; 
         
         // Check whether submitted data is not empty 

@@ -25,7 +25,9 @@
         </button>
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-right">
-                <li id="profil"><a href="./profil.php">Moj profil</a></li>
+                    <li id="pocetna"><a href="./pocetna.php">Početna</a></li>
+                    <li id="razmak"> | </li>
+                    <li id="profil"><a href="./profil.php">Moj profil</a></li>
                     <li id="razmak"> | </li>
                     <li id="postavke"><a href="./postavke.html" >Postavke</a></li>
                     <li id="razmak"> | </li>
@@ -79,13 +81,13 @@
                     $photo->slika = $row["slika"];
                     $photo->opis = $row["opis"];
                     echo '<div class="col-md-4 mb-1">';
-                        echo '<div class="photo-box">';   
+                        echo '<div class="photo-box" >';   
                             echo '<img class="photo-img" src="uploads/'.$photo->slika.'" alt="Fish Box 1">';
-                            echo '<input type="text" hidden class="form-control" id="fish-id" value='.$photo->id.' name="id">';
                         echo "</div>";
                         echo "<div class='btn-wrapper'>";
-                            echo "<button id='photo-btn' class='btn mb-4 btn-lg btn-primary' onclick=uredisliku()>Uredi</button>";
-                            echo "<button id='photo-btn' class='btn mb-4 btn-lg btn-danger' onclick=obrisisliku()>Obriši</button>";
+                            echo "<button id='".$photo->id."' class='btn2 mb-4 btn-lg btn-primary' onclick=uredisliku(this.id)>Uredi</button>";
+                            //echo '<input type="text" hidden class="form-control" id="fish-id" value='.$photo->id.' name="id">';
+                            echo "<button id='".$photo->id."' class='btn2 mb-4 btn-lg btn-danger' onclick=obrisisliku(this.id)>Obriši</button>";
                         echo "</div>";
                     echo "</div>";
                 }

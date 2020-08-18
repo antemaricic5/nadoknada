@@ -1,8 +1,8 @@
+
 function ucitajsliku(){
     window.location = "./dodajsliku.html"
 }
-function obrisisliku(){
-    var id = $("#fish-id").val();
+function obrisisliku(id){
     $.ajax({
         type:'POST',
         url:'./backend/obrisiSliku.php',
@@ -15,8 +15,9 @@ function obrisisliku(){
         }
     })
 }
-function uredisliku(){
-    localStorage.setItem("fishId", $("#fish-id").val())
+function uredisliku(id){
+    localStorage.setItem("fishId", id)
+    console.log(localStorage.getItem("fishId"))
     window.location="./uredisliku.html"
 }
 function logout(){

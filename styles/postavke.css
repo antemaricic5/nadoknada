@@ -1,0 +1,20 @@
+#form-wrapper{
+    width: -webkit-fill-available;
+}
+.form-group > div > input{
+    width: 50%;
+}
+#output {
+    border-radius: 100%;
+    object-fit: cover;
+}
+.row{
+    position: relative;
+}
+#profile-form > div:nth-child(1){
+    position: absolute;
+    right: 0;
+}
+.container{
+    max-width: 900px;
+}

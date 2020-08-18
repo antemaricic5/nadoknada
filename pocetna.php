@@ -22,18 +22,78 @@
       
     <div class="container-fluid">
         <ul class="nav navbar-nav navbar-right">
+            <li id="pocetna"><a href="./pocetna.php">Početna</a></li>
+            <li id="razmak"> | </li>    
             <li id="profil"><a href="./profil.php">Moj profil</a></li>
             <li id="razmak"> | </li>
             <li id="postavke"><a href="./postavke.html" >Postavke</a></li>
             <li id="razmak"> | </li>
-            <li id="odjava"> <a href="./index.php" onclick=logout()>Odjava</li>
+            <li id="odjava"> <a href="./index.php" onclick=logout()>Odjava</a></li>
         </ul>
     </div>
 </nav>
 <div class="container">
+    <div id="img-wrapper">
+        <img id="oneimageview" src="./images/oneimage.png" width="50px" height="50px" style="padding:10px 10px;margin-left:10px" />
+        <img id="galleryview" src="./images/gallery.png" width="50px" height="50px" style="padding:10px 10px;margin-right:10px;border-bottom:2px solid"/>
+    </div>
+    <div class="col-auto w-100 gallery-view" style="margin-top: 24px">
+        <div class="row fighter-list">
+        <?php
+            include_once "./DbHandler.php";
+            use db\DbHandler as handler;
+            error_reporting(E_ERROR | E_PARSE);
+            $db = new handler();
+            $sql = "SELECT * FROM photos WHERE privatnost = 'Javno'";
+            $result = $db->select($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){ 
+                    $photo = new stdClass();
+                    $photo->id = $row["id"];
+                    $photo->opis = $row["opis"];
+                    $photo->autor = $row["autor"];
+                    $photo->slika = $row["slika"];
+                    echo '<div class="col-md-4 mb-1">';
+                        echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
+                            echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="250">';
+                            echo '<p>'.$photo->opis.'</p>';
+                        echo "</div>";
+                    echo "</div>";
+                }
+            }
+                
+        ?>
+        </div>
+    </div>
+    <div class="col-auto w-100 oneimage-view" style="margin-top: 24px">
+        <div class="row photo-list">
+        <?php
+        
+            error_reporting(E_ERROR | E_PARSE);
+            $db = new handler();
+            $sql = "SELECT * FROM photos WHERE privatnost = 'Javno'";
+            $result = $db->select($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){ 
+                    $photo = new stdClass();
+                    $photo->id = $row["id"];
+                    $photo->opis = $row["opis"];
+                    $photo->autor = $row["autor"];
+                    $photo->slika = $row["slika"];
+                    echo '<div class="col-md-12 mb-1">';
+                        echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
+                            echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="350">';
+                            echo '<p>'.$photo->opis.'</p>';
+                        echo "</div>";
+                    echo "</div>";
+                }
+            }
+                
+        ?>
+    </div>
 </div>
     
 
-    <!--<script src="frontendcode/index.js" type="text/javascript"></script>-->
+    <script src="frontend/pocetna.js" type="text/javascript"></script>
 </body>
 </html>
