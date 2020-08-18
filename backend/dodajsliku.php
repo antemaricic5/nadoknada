@@ -35,7 +35,7 @@
                 }
                 if($uploadStatus == 1){ 
                     $db= new DbHandler();
-                    $sql = "INSERT INTO photos (slika,opis,privatnost,autor) VALUES ('".$fileName."','".$opis."','".$privatnost."','".$_SESSION['korisnickoime']."')"; 
+                    $sql = "INSERT INTO photos (slika,opis,privatnost,autor) VALUES ('".$fileName."','".$opis."','".$privatnost."','".$_SESSION['id']."')"; 
 
                     $db->insert($sql);
                     

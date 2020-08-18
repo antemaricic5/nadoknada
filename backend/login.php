@@ -19,6 +19,7 @@ $result = $db->select($sql);
 if($result->num_rows>0){
     $user = $result->fetch_assoc();
     $_SESSION["korisnickoime"] = $user["korisnickoime"];
+    $_SESSION["id"] = $user["id"];
 
     echo $_SESSION["korisnickoime"]; 
 }

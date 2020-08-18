@@ -45,7 +45,7 @@
                 session_start();
 
                 $db = new handler();
-                $sql = "SELECT * FROM users WHERE korisnickoime='".$_SESSION["korisnickoime"]."'";
+                $sql = "SELECT * FROM users WHERE id='".$_SESSION["id"]."'";
                 $result = $db->select($sql);
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){ 
@@ -72,7 +72,7 @@
         <?php
             error_reporting(E_ERROR | E_PARSE);
 
-            $sql = "SELECT * FROM photos where autor='".$_SESSION["korisnickoime"]."'";
+            $sql = "SELECT * FROM photos where autor='".$_SESSION["id"]."'";
             $result = $db->select($sql);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){ 
