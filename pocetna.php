@@ -44,7 +44,10 @@
             use db\DbHandler as handler;
             error_reporting(E_ERROR | E_PARSE);
             $db = new handler();
-            $sql = "SELECT * FROM photos WHERE privatnost = 'Javno'";
+            $sql = "SELECT * FROM photos 
+                WHERE privatnost = 'Javno'
+                ORDER BY RAND()
+                LIMIT 9 ";
             $result = $db->select($sql);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){ 
@@ -71,7 +74,10 @@
         
             error_reporting(E_ERROR | E_PARSE);
             $db = new handler();
-            $sql = "SELECT * FROM photos WHERE privatnost = 'Javno'";
+            $sql = "SELECT * FROM photos 
+                WHERE privatnost = 'Javno'
+                ORDER BY RAND()
+                LIMIT 9 ";
             $result = $db->select($sql);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){ 
