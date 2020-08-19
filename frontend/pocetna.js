@@ -28,7 +28,7 @@ function nickClick(){
             }
             else{
                 localStorage.setItem("tudiprofil",event.path[0].innerHTML)
-    
+                window.location="./tudiprofil.html"
             }
         }
     })
