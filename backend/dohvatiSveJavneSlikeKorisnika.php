@@ -15,8 +15,14 @@
             $photo->slika = $row["slika"];
             $photo->opis = $row["opis"];
             echo '<div class="col-md-4 mb-1">';
-                echo '<div class="photo-box" >';   
-                    echo '<img class="photo-img" src="uploads/'.$photo->slika.'" alt="Fish Box 1">';
+                echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\'>';   
+                    echo '<img id="myImg" class="photo-img" src="uploads/'.$photo->slika.'" alt="Fish Box 1" width="100%" height="250">';
+                    echo '<p>'.$photo->opis.'</p>';
+                    echo '<div id="myModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
+                    <div id="caption"></div>
+                    </div>';
                 echo "</div>";
             echo "</div>";
         }

@@ -1,7 +1,18 @@
 var userid;
+var span,modal,modalImg,captionText
 $(document).ready(function () 
 {
     loadData();
+    setTimeout(function(){
+ // Get the modal
+    modal = document.getElementById("myModal");
+    modalImg = document.getElementById("img01");
+    captionText = document.getElementById("caption");
+    span = document.querySelector(".close");
+    span.onclick = function() {
+        modal.style.display = "none";
+      }
+    }, 500);
 });
 function loadData(){
     
@@ -44,3 +55,23 @@ function logout(){
         }
     })
 }
+
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var wrapper = document.querySelector(".fish-list")
+
+wrapper.onclick = function(event){
+   
+    if(event.target.nodeName === "IMG"){
+        let src = event.path[0].src
+        let parentdesc = event.path[0].parentElement
+        let description = parentdesc.querySelector("p").innerHTML
+        modal.style.display = "block";
+        modalImg.src = src;
+        captionText.innerHTML = description;
+    }
+    
+}
+
+// Get the <span> element that closes the modal
+// When the user clicks on <span> (x), close the modal

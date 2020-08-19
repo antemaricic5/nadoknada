@@ -83,12 +83,12 @@ var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 wrapper.onclick = function(event){
     if(event.target.nodeName === "IMG"){
-        let pwrapper = event.path[1]
-        let p = pwrapper.querySelector("p").innerHTML
         let src = event.path[0].src
+        let parentdesc = event.path[0].parentElement
+        let description = parentdesc.querySelectorAll("p")[1].innerHTML
         modal.style.display = "block";
         modalImg.src = src;
-        captionText.innerHTML = p;
+        captionText.innerHTML = description;
     }
     
 }

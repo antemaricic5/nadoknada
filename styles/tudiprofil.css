@@ -2,7 +2,7 @@
     position: absolute;
     right: 5%;
 }
- #razmak{
+#razmak{
      margin:0 5px;
  }
 a{
@@ -11,34 +11,35 @@ a{
 a:hover{
     color: black;
 }
-#img-wrapper {
-    display: flow-root
+.info-wrapper {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid;
+    margin-bottom: 20px;
 }
-
-#img-wrapper > img {
-    float: right;
+.info-wrapper > img {
+    border-radius: 100%;
+    object-fit: cover;
+    margin-right: 15px;
+    padding: 15px;
+}
+.info-wrapper > button {
+    margin-left: auto;
+}
+.photo-box > img{
+    border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+    object-fit: cover;
 }
-.col-md-4{
+.col-md-4 {
     border-radius: 20px;
-    background-color: lightgrey;  
+    background-color: lightgrey;
     padding-top: 15px;
     margin: 5px;
     max-width: 30.333333%;
 }
-.photo-box > p {
-    overflow: hidden;
-    padding:10px 0;
-    max-height: 150px ;
-}
-.col-md-12{
-    padding: 10px;
-    background-color: lightgrey;
-    margin-bottom: 15px!important;
-}
-.photo-box > img {
-    object-fit: cover;
-}
+/* Style the Image Used to Trigger the Modal */
 #myImg {
     border-radius: 5px;
     cursor: pointer;
@@ -116,13 +117,4 @@ a:hover{
     .modal-content {
       width: 100%;
     }
-  }
-  #nadimak{
-    margin-bottom:0;
-    padding-bottom: 0;
-    cursor:pointer;
-    display: inline-flex;
-  }
-  #nadimak:hover{
-    color:white
   }
