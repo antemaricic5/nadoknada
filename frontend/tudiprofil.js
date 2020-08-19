@@ -34,3 +34,13 @@ function loadphoto(userid){
         }
     });
 }
+
+function logout(){
+    $.ajax({
+        type:'GET',
+        url:'./backend/logOut.php',
+        success : function(response){
+            window.location="./index.html"
+        }
+    })
+}

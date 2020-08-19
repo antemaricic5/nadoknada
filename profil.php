@@ -84,6 +84,11 @@
                         echo '<div class="photo-box" >';   
                             echo '<img class="photo-img" src="uploads/'.$photo->slika.'" alt="Fish Box 1">';
                         echo "</div>";
+                    echo "<div class='btn-wrapper'>";
+                        echo "<button id='".$photo->id."' class='btn2 mb-4 btn-lg btn-primary' onclick=uredisliku(this.id)>Uredi</button>";
+                        //echo '<input type="text" hidden class="form-control" id="fish-id" value='.$photo->id.' name="id">';
+                        echo "<button id='".$photo->id."' class='btn2 mb-4 btn-lg btn-danger' onclick=obrisisliku(this.id)>Obriši</button>";
+                    echo "</div>";
                     echo "</div>";
                 }
             }
