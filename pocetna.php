@@ -38,7 +38,7 @@
         <img id="galleryview" src="./images/gallery.png" width="50px" height="50px" style="padding:10px 10px;margin-right:10px;border-bottom:2px solid"/>
     </div>
     <div class="col-auto w-100 gallery-view" style="margin-top: 24px">
-        <div class="row fighter-list">
+        <div class="row photo-list">
         <?php
             include_once "./DbHandler.php";
             use db\DbHandler as handler;
@@ -58,8 +58,13 @@
                     $photo->slika = $row["slika"];
                     echo '<div class="col-md-4 mb-1">';
                         echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
-                            echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="250">';
+                            echo '<img id="myImg" src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="250">';
                             echo '<p>'.$photo->opis.'</p>';
+                            echo '<div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div>';
                         echo "</div>";
                     echo "</div>";
                 }

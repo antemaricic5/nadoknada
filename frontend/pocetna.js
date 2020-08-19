@@ -45,3 +45,31 @@ function logout(){
 function oneimageview(){
     console.log("jednaslika")
 }
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var wrapper = document.querySelector(".photo-list")
+
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+wrapper.onclick = function(event){
+    if(event.target.nodeName === "IMG"){
+        let pwrapper = event.path[1]
+        let p = pwrapper.querySelector("p").innerHTML
+        let src = event.path[0].src
+        modal.style.display = "block";
+        modalImg.src = src;
+        captionText.innerHTML = p;
+    }
+    
+}
+
+// Get the <span> element that closes the modal
+var span = document.querySelector(".close");
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
