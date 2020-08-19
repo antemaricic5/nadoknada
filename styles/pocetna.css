@@ -117,3 +117,11 @@ a:hover{
       width: 100%;
     }
   }
+  #nadimak{
+    margin-bottom:0;
+    padding-bottom: 0;
+    cursor:pointer;
+  }
+  #nadimak:hover{
+    color:white
+  }

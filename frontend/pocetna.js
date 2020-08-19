@@ -1,3 +1,4 @@
+var logirankorisnik;
 $(document).ready(function () 
 {
     let oneitemview = document.querySelector(".oneimage-view")
@@ -5,7 +6,33 @@ $(document).ready(function ()
     
     oneimageviewClick()
     galleryViewClick()
+    nickClick()
+    getloggedNick()
 });
+function getloggedNick(){
+    $.ajax({
+        type:'GET',
+        url:'./backend/dohvatiId.php',
+        success : function(response){
+            var obj = JSON.parse(response);
+            logirankorisnik = obj.korisnickoime
+        }
+    })
+}
+function nickClick(){
+    let wrapper = document.querySelector(".photo-list")
+    wrapper.addEventListener("click",function(event){
+        if(event.path[1].id == "nadimak"){
+            if(event.path[0].innerHTML == logirankorisnik){
+                window.location="./profil.php"
+            }
+            else{
+                localStorage.setItem("tudiprofil",event.path[0].innerHTML)
+    
+            }
+        }
+    })
+}
 function oneimageviewClick(){
     var oneimgclick = document.querySelector("#oneimageview")
     var gallery = document.querySelector("#galleryview")

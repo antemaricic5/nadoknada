@@ -56,9 +56,18 @@
                     $photo->opis = $row["opis"];
                     $photo->autor = $row["autor"];
                     $photo->slika = $row["slika"];
+
+                    $sql2 = "SELECT * FROM users 
+                        WHERE id = '".$photo->autor."'";
+                    
+                    $result2 = $db->select($sql2);
+                    $row2 = $result2->fetch_assoc();
+                    $user = new stdClass();
+                    $user->nick = $row2["korisnickoime"];
                     echo '<div class="col-md-4 mb-1">';
                         echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
-                            echo '<img id="myImg" src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="250">';
+                            echo '<img id="myImg" src="./uploads/'.$photo->slika.'" alt="photo Box 1" width="100%" height="250">';
+                            echo '<p id="nadimak"><b>'.$user->nick.'</b></p>';
                             echo '<p>'.$photo->opis.'</p>';
                             echo '<div id="myModal" class="modal">
                             <span class="close">&times;</span>
@@ -91,9 +100,17 @@
                     $photo->opis = $row["opis"];
                     $photo->autor = $row["autor"];
                     $photo->slika = $row["slika"];
+                    $sql2 = "SELECT * FROM users 
+                    WHERE id = '".$photo->autor."'";
+                
+                    $result2 = $db->select($sql2);
+                    $row2 = $result2->fetch_assoc();
+                    $user = new stdClass();
+                    $user->nick = $row2["korisnickoime"];
                     echo '<div class="col-md-12 mb-1">';
                         echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
                             echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="350">';
+                            echo '<p style="margin-bottom:0; padding-bottom: 0;cursor:pointer;"><b>'.$user->nick.'</b></p>';
                             echo '<p>'.$photo->opis.'</p>';
                         echo "</div>";
                     echo "</div>";
