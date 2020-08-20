@@ -55,7 +55,7 @@ function submitUser(){
                 processData: false,
                 contentType: false,
                 success:function(response){
-                    window.location="./index.html"
+                    window.location="./index.php"
                 }
             });
         }

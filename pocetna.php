@@ -112,6 +112,11 @@
                             echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="350">';
                             echo '<p style="margin-bottom:0; padding-bottom: 0;cursor:pointer;"><b>'.$user->nick.'</b></p>';
                             echo '<p>'.$photo->opis.'</p>';
+                            echo '<div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div>';
                         echo "</div>";
                     echo "</div>";
                 }

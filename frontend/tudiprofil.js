@@ -51,7 +51,7 @@ function logout(){
         type:'GET',
         url:'./backend/logOut.php',
         success : function(response){
-            window.location="./index.html"
+            window.location="./index.php"
         }
     })
 }

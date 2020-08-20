@@ -6,7 +6,7 @@
 
     error_reporting(E_ERROR | E_PARSE);
     session_start();
-    $sql = "SELECT * FROM photos where autor='".$_POST["id"]."'";
+    $sql = "SELECT * FROM photos where autor='".$_POST["id"]."' AND privatnost='Javno'";
     $result = $db->select($sql);
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){ 

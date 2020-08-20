@@ -38,6 +38,7 @@ function ucitajVarijable(){
 function provjeraPolja(){
     if(slika==undefined || slika=="" || opis == "" || radio == undefined){
         filled=false;
+        alert("Potrebno je popuniti sva polja i učitati sliku!")
     }
     else{
         filled=true;
