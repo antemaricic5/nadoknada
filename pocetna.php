@@ -83,7 +83,7 @@
         </div>
     </div>
     <div class="col-auto w-100 oneimage-view" style="margin-top: 24px">
-        <div class="row photo-list">
+        <div class="row photo-list-view">
         <?php
         
             error_reporting(E_ERROR | E_PARSE);
@@ -109,13 +109,13 @@
                     $user->nick = $row2["korisnickoime"];
                     echo '<div class="col-md-12 mb-1">';
                         echo '<div class="photo-box" data-info = \''.(json_encode($photo)) .'\' >';   
-                            echo '<img src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="350">';
-                            echo '<p style="margin-bottom:0; padding-bottom: 0;cursor:pointer;"><b>'.$user->nick.'</b></p>';
+                            echo '<img id="myImg" src="./uploads/'.$row['slika'].'" alt="photo Box 1" width="100%" height="350">';
+                            echo '<p id="nadimak" style="margin-bottom:0; padding-bottom: 0;cursor:pointer;"><b>'.$user->nick.'</b></p>';
                             echo '<p>'.$photo->opis.'</p>';
-                            echo '<div id="myModal" class="modal">
-                            <span class="close">&times;</span>
-                            <img class="modal-content" id="img01">
-                            <div id="caption"></div>
+                            echo '<div id="myModal2" class="modal2">
+                            <span class="close2">&times;</span>
+                            <img class="modal-content2" id="img012">
+                            <div id="caption2"></div>
                             </div>';
                         echo "</div>";
                     echo "</div>";

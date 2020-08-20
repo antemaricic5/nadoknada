@@ -7,6 +7,7 @@ $(document).ready(function ()
     oneimageviewClick()
     galleryViewClick()
     nickClick()
+    nickClickList()
     getloggedNick()
 });
 function getloggedNick(){
@@ -22,6 +23,22 @@ function getloggedNick(){
 function nickClick(){
     let wrapper = document.querySelector(".photo-list")
     wrapper.addEventListener("click",function(event){
+        console.log(event)
+        if(event.path[1].id == "nadimak"){
+            if(event.path[0].innerHTML == logirankorisnik){
+                window.location="./profil.php"
+            }
+            else{
+                localStorage.setItem("tudiprofil",event.path[0].innerHTML)
+                window.location="./tudiprofil.html"
+            }
+        }
+    })
+}
+function nickClickList(){
+    let wrapper = document.querySelector(".photo-list-view")
+    wrapper.addEventListener("click",function(event){
+        console.log(event)
         if(event.path[1].id == "nadimak"){
             if(event.path[0].innerHTML == logirankorisnik){
                 window.location="./profil.php"
@@ -92,11 +109,37 @@ wrapper.onclick = function(event){
     }
     
 }
-
+var modal2 = document.getElementById("myModal2");
+var wrapper2 = document.querySelector(".photo-list-view")
+// Get the modal
+var modalImg2 = document.getElementById("img012");
+var captionText2 = document.getElementById("caption2");
+wrapper2.onclick = function(event){
+    
+    if(event.target.nodeName === "IMG"){
+        console.log(modal2)
+        console.log(modalImg2)
+        console.log(captionText2)
+        let src = event.path[0].src
+        let parentdesc = event.path[0].parentElement
+        let description = parentdesc.querySelectorAll("p")[1].innerHTML
+        modal2.style.display = "block";
+        modalImg2.src = src;
+        captionText2.innerHTML = description;
+    }
+}
+    
 // Get the <span> element that closes the modal
 var span = document.querySelector(".close");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+}
+// Get the <span> element that closes the modal
+var span2 = document.querySelector(".close2");
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+  modal2.style.display = "none";
 }
